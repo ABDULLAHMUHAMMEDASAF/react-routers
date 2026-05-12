@@ -1,11 +1,13 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router";
+import { Link, Outlet } from "react-router";
 
 function Users({ users }) {
   const divStyle = {
     backgroundColor: "black",
     color: "crimson",
     padding: "15px",
+    display: "flex",
+    gap:"20px"
   };
 
   const liStyle = {
@@ -19,16 +21,21 @@ function Users({ users }) {
   };
 
   return (
-    <>
-      <h3 style={divStyle}>Merhaba USERS :)</h3>
-      <ul>
-        {users.map((u) => (
-          <li key={u.id} style={liStyle}>
-            <Link to={`/kullanicilar/${u.id}`}>{u.name}</Link>
-          </li>
-        ))}
-      </ul>
-    </>
+    <div style={divStyle}>
+      <div style={{ flexGrow: "1" }}>
+        <h3>Merhaba USERS :)</h3>
+        <ul>
+          {users.map((u) => (
+            <li key={u.id} style={liStyle}>
+              <Link to={`/kullanicilar/${u.id}`}>{u.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div style={{ flexGrow: "1" }}>
+        <Outlet />
+      </div>
+    </div>
   );
 }
 
