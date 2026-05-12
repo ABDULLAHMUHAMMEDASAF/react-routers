@@ -20,7 +20,7 @@ function Navigation() {
   return (
     <>
       <nav style={style}>
-        <Link style={linkStyle} to="/anasayfa">
+        <Link style={linkStyle} to="/">
           Anasayfa
         </Link>
         <Link style={linkStyle} to="/kullanicilar">
